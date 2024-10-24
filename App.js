@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import HomeScreen from '../src/screens/HomeScreen';
+import PixScreen from '../src/screens/PixScreen';
+import { MaterialIcons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigatorConteiner>
+      <Tab.Navigator>
+      <Tab.Screen 
+       name="Home" 
+       component={HomeScreen} 
+       options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="home" color={color} size={size} />
+        ),
+      }} 
+    />
+    <Tab.Screen 
+      name="Pix" 
+      component={PixScreen}
+      options={{
+        headerShown: false,
+        tabBarIcon: ({ color, size }) => (
+          <MaterialIcons name="compare-arrows" color={color} size={size} />
+        ),
+      }} 
+    />
+    </Tab.Navigator>
+  </NavigatorConteiner>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

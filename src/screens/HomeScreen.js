@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Header from '../components/Header.Js';
+import Header from '../components/Header.js';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
